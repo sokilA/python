@@ -10,7 +10,7 @@ print("starting the client at", datetime.now())
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 client.connect(server_address)
-client.sendall(b'Hey!!!')
+client.sendall(b'Hello world')
 data = client.recv(max_size)
 print('At', datetime.now(), 'someone replied', data)
 client.close()

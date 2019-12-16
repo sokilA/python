@@ -9,7 +9,7 @@ print("starting the client at", datetime.now())
 
 client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-client.sendto(b"hey!", server_address)
+client.sendto(b"Hello world", server_address)
 data,server = client.recvfrom(max_size)
 print("at", datetime.now(), server, "said", data)
 client.close()

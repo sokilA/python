@@ -6,13 +6,12 @@ max_size = 4096
 print("Starting the server at", datetime.now())
 print("Waiting for a client to call.")
 
-server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) #AF_INET-інтернет сокет(іп), SOCK_DGRAM- використовуємо UDP.
+server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+server.bind(server_address)
 
-server.bind(server_address) #звязуємо
-
-data, client = server.recvfrom(max_size) #recvfrom чекає приходу діаграми
+data, client = server.recvfrom(max_size)
 
 print("At", datetime.now(), client, "said", data)
 
-server.sendto(b"Are you talking to me?", client)
+server.sendto(b"Questions?", client)
 server.close()
